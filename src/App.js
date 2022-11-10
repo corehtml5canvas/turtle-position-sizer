@@ -19,8 +19,6 @@ const localizeNumber = n => parseFloat(n).toLocaleString()
 function App() {
   // STATE......................................................................
 
-  const [title, setTitle] = useState("Turtle Position Sizer")
-
   const [accountValue, setAccountValue] = useState(8000)
   const [sharePrice, setSharePrice] = useState(179.67)
   const [atr, setAtr] = useState(1.57)
