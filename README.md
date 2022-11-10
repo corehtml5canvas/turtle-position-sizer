@@ -1,5 +1,5 @@
 # turtle-position-sizer
-A React App that calculates stop losses and position size according to the Turtle methodology. See [The Complete TurtleTrader](https://www.amazon.com/Complete-TurtleTrader-Investors-Overnight-Millionaires/dp/0061241717) for more information.
+A React App that calculates stop loss and position size according to the Turtle methodology. See [The Complete TurtleTrader](https://www.amazon.com/Complete-TurtleTrader-Investors-Overnight-Millionaires/dp/0061241717) for more information.
 
 The Application calculates stop loss and unit size like this
 
