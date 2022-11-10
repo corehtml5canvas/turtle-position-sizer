@@ -1,0 +1,278 @@
+.App {
+  text-align: center;
+}
+
+.custom-select {
+  font-size: 0.75em;
+}
+
+.break-button {
+  margin-top: 20px;
+  font-size: 0.8em;
+  font-family: 'PlayBall';
+  cursor: pointer;
+}
+
+.editing-pencil-container {
+  padding-top: 0.55em;
+}
+
+.editing-pencil {
+  margin-left: -1em;
+  margin-top: -5px;
+  color: rgb(255,255,155);
+  cursor: pointer;
+}
+
+.separator {
+  color: skyblue;
+}
+
+.account-percents {
+  text-align: center;
+  margin-top: 0.5em;
+}
+
+.account-info {
+  margin-top: 1.0em;
+  margin-left: 1.4em;
+}
+
+.risk-display {
+  width: 5em;
+  font-weight: 300;
+}
+
+.cost-display {
+  width: 5em;
+  font-weight: 300;
+}
+
+.shares-display {
+  width: 4em;
+  font-weight: 300;
+}
+
+.units-display {
+  width: 2em;
+  font-weight: 300;
+}
+
+.stop-loss {
+  font-weight: 200;
+  text-align: left;
+  margin-bottom: 2em;
+  margin-top: 1.3em;
+}
+
+.stop-loss-title {
+  font-weight: 200;
+  margin-right: 1em;
+}
+
+.stop-loss-amount {
+  color: blue;
+}
+
+.stop-loss-percent {
+  color: steelblue;
+  margin-left: 0.5em;
+}
+
+.stop-level {
+  font-weight: 200;
+  margin-right: 0.8em;
+}
+
+.stop-level-container {
+  margin-top: 0.2em;
+}
+
+.risk-per-trade {
+  margin-top: 10;
+  margin-right: 2.5em;
+  font-weight: 200;
+}
+
+.risk-per-trade-percent {
+  color: steelblue;
+}
+
+.bars {
+  color: darkcyan;
+  color: rgb(255,255,155);
+  cursor: pointer;
+  margin-left: -0.85em;
+}
+
+.title {
+  margin-bottom: 10px;
+  font-size: 1.6em;
+  color: yellow;
+}
+
+.dollar-input-title {
+  font-weight: 200;
+}
+
+.dollar-input-input {
+  padding-left: 0.5em;
+  font-size: 1.05em;
+}
+
+.dollar-sign {
+  color: lightgoldenrodyellow;
+  margin-right: 0.2em;
+}
+
+.stoploss-atr {
+  margin-left: 1.2em;
+  margin-top: 10px;
+  margin-right: 0.5em;
+}
+
+.stoploss-level {
+  margin-left: 2.2em;
+  margin-right: 2.2em;
+}
+
+.stoploss-explicit-dollar {
+  margin-left: 1.8em;
+}
+
+.stoploss-explicit {
+  margin-left: -3.0em;
+  margin-top: 0;
+  margin-right: 0.0em;
+  font-weight: 200;
+}
+
+.stoploss-explicit-value {
+  width: 3.5em;
+}
+
+.stoploss-explicit-title {
+  margin-left: 2.3em;
+}
+
+.stoploss-title {
+  margin-left: 2.2em;
+}
+
+.stoploss-computed-percent {
+  font-weight: 200;
+}
+
+.stoploss-computed-title {
+  margin-left: -1.2em;
+  margin-right: 0.8em;
+  font-weight: 200;
+}
+
+.position-display-heading {
+  color: rgb(49, 86, 219);
+}
+
+.position-display {
+  margin-top: 1.0em;
+  color: rgb(80, 85, 4);
+}
+
+.position-size {
+  text-align: center;
+  font-weight: 300;
+}
+
+.position-size-risk {
+  text-align: left;
+  padding-left: 0.7em;
+}
+
+.position-size-cost {
+  text-align: left;
+  padding-left: 0.7em;
+}
+
+.position-size-shares {
+  color: yellow
+}
+
+.position-size-units {
+  color: darkcyan
+}
+
+.field {
+  width: 4em;
+  margin-left: 0.5em;
+}
+
+.atr-percent {
+  color: steelblue;
+  margin-left: 0.2em;
+  font-size: 0.85em;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App {
+  background-color: rgb(164, 206, 246);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: top;
+  padding-top: 20px;
+  font-size: calc(10px + 1.75vmin);
+  color: rgb(7, 27, 253);
+}
+
+.fadein {
+  -webkit-animation: fade 1.0s linear forwards;
+  animation: fade 1.0s linear forwards;
+  opacity: 0;
+}
+
+.fadein-quickly {
+  -webkit-animation: fade 0.6s linear forwards;
+  animation: fade 0.6s linear forwards;
+  opacity: 0;
+}
+
+.fadeout {
+  -webkit-animation: fade 0.8s linear backwards;
+  animation: fade 0.8s linear backwards;
+  opacity: 0;
+}
+
+@-webkit-keyframes fade {
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade {
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
