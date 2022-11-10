@@ -13,7 +13,7 @@ const EditingPencil = ({
   style,
 }) => {
   const [tooltipOpen, setTooltipOpen] = useState(false)
-	const ICON_SIZE = '1.2em'
+  const ICON_SIZE = '1.2em'
 
   return (
     visible &&
