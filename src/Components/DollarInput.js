@@ -22,7 +22,7 @@ const DollarInput = forwardRef(({
         <DollarSign />
         <input
           key={key}
-					type='number'
+          type='number'
           min='1'
           step='any'
           className='field'
