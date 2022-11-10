@@ -2,6 +2,19 @@
   text-align: center;
 }
 
+.tooltip-container {
+  background-color: antiquewhite;
+  border: thin solid gray;
+  padding: 3px;
+  margin-right: 5px;
+}
+
+.tooltip-text {
+  font-size: 0.9em;
+  font-weight: 200;
+  color: blue;
+}
+
 .custom-select {
   font-size: 0.75em;
 }

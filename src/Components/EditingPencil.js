@@ -9,6 +9,7 @@ const EditingPencil = ({
   id,
   tooltipText,
   visible=true,
+  tooltipPlacement='top',
   style,
 }) => {
   const [tooltipOpen, setTooltipOpen] = useState(false)
@@ -26,14 +27,16 @@ const EditingPencil = ({
 
       { tooltipText &&
         <Tooltip
-          placement='top'
+          placement={tooltipPlacement}
           isOpen={tooltipOpen}
           target={id || 'edit'}
           delay={1500}
           trigger='hover'
           toggle={() => setTooltipOpen(!tooltipOpen)}
         >
-          { tooltipText }
+          <div className='tooltip-container'>
+            <span className='tooltip-text'>{ tooltipText }</span>
+          </div>
         </Tooltip>
       }
     </span>
