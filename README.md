@@ -11,7 +11,11 @@ The Application calculates stop loss and unit size like this
 
 <img src='./public/app-1.png'></img>
 
-If you click the editing pencil, you can specify the stop level explicitly, like this.
+If you click the editing pencil...
+
+<img src='./public/app-1b.png'></img>
+
+...you can specify the stop level explicitly, like this.
 
 <img src='./public/app-2.png'></img>
 
