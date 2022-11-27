@@ -19,7 +19,7 @@ const localizeNumber = n => parseFloat(n).toLocaleString()
 function App() {
   // STATE......................................................................
 
-  const [accountValue, setAccountValue] = useState(8000)
+  const [accountValue, setAccountValue] = useState(7800)
   const [sharePrice, setSharePrice] = useState(179.67)
   const [atr, setAtr] = useState(1.57)
 
@@ -54,6 +54,7 @@ function App() {
   const percents = [
     { id: 2, name: 2 },
     { id: 1, name: 1 },
+    { id: 0.75, name: .75 },
     { id: 0.5, name: .50 },
     { id: 0.25, name: .25 },
   ]
