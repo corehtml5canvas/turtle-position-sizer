@@ -351,7 +351,7 @@ function App() {
           <StopLossDisplay />
         </div>
       }
-      <button className='break-button' onClick={openGame}> Take a Break </button>
+      { /*<button className='break-button' onClick={openGame}> Take a Break </button>*/ }
     </div>
   )
 }
