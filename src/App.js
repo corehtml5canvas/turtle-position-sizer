@@ -27,7 +27,6 @@ function App() {
   const [stopLoss, setStopLoss] = useState(null)
   const [stopLevel, setStopLevel] = useState(null)
 
-  const [ready, setReady] = useState(false)
   const [editingStopLoss, setEditingStopLoss] = useState(false)
 
   const accountValueRef = useRef()
@@ -62,10 +61,25 @@ function App() {
   // CALLBACKS..................................................................
 
   const calculateStopLossAndUnitSize = useCallback(() => {
-    const stopLoss = atr * atrPercent / 100
-    setStopLoss(stopLoss)
-    setUnitSize((accountValue * accountPercent / 100) / stopLoss)
-  }, [atr, atrPercent, accountPercent])
+    if (editingStopLoss) {
+      if (stopLevel) {
+        const f = parseFloat(stopLevel)
+        if (!Number.isNaN(f)) {
+          const sl = sharePrice - f
+          setStopLoss(sl)
+          setUnitSize((accountValue * accountPercent / 100) / sl)
+        }
+      }
+    }
+    else {
+      const stopLoss = atr * atrPercent / 100
+      setStopLoss(stopLoss)
+      setUnitSize((accountValue * accountPercent / 100) / stopLoss)
+    }
+  }, [
+    atr, atrPercent, accountValue, accountPercent,
+    stopLevel, editingStopLoss, sharePrice
+  ])
 
   // EFFECTS....................................................................
 
@@ -80,24 +94,8 @@ function App() {
   }, [editingStopLoss])
 
   useEffect(() => {
-    if (stopLevel) {
-      const f = parseFloat(stopLevel)
-      if (!Number.isNaN(f)) {
-        const sl = sharePrice - f
-        setStopLoss(sl)
-        setUnitSize((accountValue * accountPercent / 100) / sl)
-      }
-    }
-  }, [stopLevel])
-
-  useEffect(() => {
-    setReady(accountValue && sharePrice && atr)
-
-    if (accountValue && sharePrice && atr) {
-      calculateStopLossAndUnitSize()
-    }
-  }, [accountValue, accountPercent, sharePrice,
-      atr, atrPercent, calculateStopLossAndUnitSize])
+    calculateStopLossAndUnitSize()
+  }, [calculateStopLossAndUnitSize])
 
   // EVENT HANDLERS.............................................................
 
@@ -110,7 +108,17 @@ function App() {
   const accountPercentChanged = (e) => {
     const v = e.target.value
     setAccountPercent(parseFloat(v))
-    calculateStopLossAndUnitSize()
+    if (editStopLoss) {
+      const f = parseFloat(stopLevel)
+      if (!Number.isNaN(f)) {
+        const sl = sharePrice - f
+        setStopLoss(sl)
+        setUnitSize((accountValue * accountPercent / 100) / sl)
+      }
+    }
+    else {
+      calculateStopLossAndUnitSize()
+    }
   }
 
   const editStopLoss = () => {
@@ -301,7 +309,7 @@ function App() {
         </tr>
       </table>
 
-      { ready && unitSize && stopLoss &&
+      { unitSize && stopLoss &&
         <div>
           <div className='position-display'>
             <hr className='separator'/>
@@ -343,7 +351,7 @@ function App() {
           <StopLossDisplay />
         </div>
       }
-      {/* <button className='break-button' onClick={openGame}> Take a Break </button> */}
+      <button className='break-button' onClick={openGame}> Take a Break </button>
     </div>
   )
 }
