@@ -268,7 +268,7 @@ function App() {
                 edit={editStopLoss}
                 className='editing-pencil'
                 tooltipText='Edit stop level explicitly'
-                tooltipPlacement='left'
+                tooltipPlacement='bottom'
               />
             </td>
           </tr>
