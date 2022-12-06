@@ -116,9 +116,6 @@ function App() {
         setUnitSize((accountValue * accountPercent / 100) / sl)
       }
     }
-    else {
-      calculateStopLossAndUnitSize()
-    }
   }
 
   const editStopLoss = () => {
@@ -128,7 +125,6 @@ function App() {
 
   const barsClicked = () => {
     setEditingStopLoss(false)
-    calculateStopLossAndUnitSize()
   }
 
   const openGame = () => {
