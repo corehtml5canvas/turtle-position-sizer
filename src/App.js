@@ -1,5 +1,4 @@
 import {
-  useCallback,
   useEffect,
   useRef,
   useState
@@ -58,9 +57,19 @@ function App() {
     { id: 0.25, name: .25 },
   ]
 
-  // CALLBACKS..................................................................
+  // EFFECTS....................................................................
 
-  const calculateStopLossAndUnitSize = useCallback(() => {
+  useEffect(() => {
+    accountValueRef.current.focus()
+  }, [])
+
+  useEffect(() => {
+    if (stopLossRef.current) {
+      stopLossRef.current.focus()
+    }
+  }, [editingStopLoss])
+
+  useEffect(() => {
     if (editingStopLoss) {
       if (stopLevel) {
         const f = parseFloat(stopLevel)
@@ -80,22 +89,6 @@ function App() {
     atr, atrPercent, accountValue, accountPercent,
     stopLevel, editingStopLoss, sharePrice
   ])
-
-  // EFFECTS....................................................................
-
-  useEffect(() => {
-    accountValueRef.current.focus()
-  }, [])
-
-  useEffect(() => {
-    if (stopLossRef.current) {
-      stopLossRef.current.focus()
-    }
-  }, [editingStopLoss])
-
-  useEffect(() => {
-    calculateStopLossAndUnitSize()
-  }, [calculateStopLossAndUnitSize])
 
   // EVENT HANDLERS.............................................................
 
