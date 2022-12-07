@@ -70,11 +70,12 @@ function App() {
   useEffect(() => {
     if (editingStopLoss) {
       if (stopLevel) {
-        const f = parseFloat(stopLevel)
-        if (!Number.isNaN(f)) {
-          const sl = sharePrice - f
-          setStopLoss(sl)
-          setUnitSize((accountValue * riskPerTrade / 100) / sl)
+        const level = parseFloat(stopLevel)
+
+        if (!Number.isNaN(level)) {
+          const stopLoss = sharePrice - level
+          setStopLoss(stopLoss)
+          setUnitSize((accountValue * riskPerTrade / 100) / stopLoss)
         }
       }
     }
@@ -102,16 +103,16 @@ function App() {
   }
 
   const riskPerTradeChanged = (e) => {
-    const v = e.target.value
+    const riskPerTrade = e.target.value
 
-    setRiskPerTrade(parseFloat(v))
+    setRiskPerTrade(parseFloat(riskPerTrade))
 
-    const f = parseFloat(stopLevel)
+    const level = parseFloat(stopLevel)
 
-    if (!Number.isNaN(f)) {
-      const sl = sharePrice - f
-      setStopLoss(sl)
-      setUnitSize((accountValue * riskPerTrade / 100) / sl)
+    if (!Number.isNaN(level)) {
+      const stopLoss = sharePrice - level
+      setStopLoss(stopLoss)
+      setUnitSize((accountValue * riskPerTrade / 100) / stopLoss)
     }
   }
 
