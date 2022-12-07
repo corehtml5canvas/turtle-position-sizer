@@ -87,13 +87,13 @@ function App() {
   // EVENT HANDLERS.............................................................
 
   const atrPercentChanged = (e) => {
-    const v = parseFloat(e.target.value)
-    setAtrPercent(v)
-    setStopLoss(parseFloat(v * atr / 100))
+    const percent = e.target.value
+    setAtrPercent(percent)
+    setStopLoss(percent * atr / 100)
   }
 
   const riskPerTradeChanged = (e) => {
-    const riskPerTrade = parseFloat(e.target.value)
+    const riskPerTrade = e.target.value
     const stopLoss = sharePrice - stopLevel
 
     setRiskPerTrade(riskPerTrade)
@@ -103,7 +103,7 @@ function App() {
 
   const editStopLoss = () => {
     setEditingStopLoss(true)
-    setStopLevel((sharePrice - stopLoss).toFixed(2))
+    setStopLevel(sharePrice - stopLoss)
   }
 
   const barsClicked = () => {
