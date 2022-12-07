@@ -13,7 +13,7 @@ import { FaBars } from 'react-icons/fa'
 
 import './App.css'
 
-const localizeNumber = n => parseFloat(n).toLocaleString()
+const money = n => parseFloat(n).toFixed(2)
 
 function App() {
   // STATE......................................................................
@@ -169,7 +169,7 @@ function App() {
 
         <DollarSign />
         <span className='stop-loss-amount'>
-          {localizeNumber((sharePrice - stopLoss).toFixed(2))}
+          {money(sharePrice - stopLoss)}
         </span>
       </p>
     </div>
@@ -304,22 +304,22 @@ function App() {
                 <PositionSizeRow
                   units = '1'
                   numShares = {unitSize.toFixed()}
-                  cost = {localizeNumber((sharePrice * unitSize).toFixed(2))}
-                  risk = {localizeNumber(unitSize.toFixed() * stopLoss)}
+                  cost = {money(sharePrice * unitSize)}
+                  risk = {money(unitSize.toFixed() * stopLoss)}
                 />
 
                 <PositionSizeRow
                   units = '1/2'
                   numShares = {unitSize.toFixed()/2}
-                  cost = {localizeNumber((sharePrice * unitSize / 2).toFixed(2))}
-                  risk = {localizeNumber((unitSize.toFixed() * stopLoss / 2).toFixed(2))}
+                  cost = {money(sharePrice * unitSize / 2)}
+                  risk = {money(unitSize.toFixed() * stopLoss / 2)}
                 />
 
                 <PositionSizeRow
                   units = '1/4'
                   numShares = {unitSize.toFixed()/4}
-                  cost = {localizeNumber((sharePrice * unitSize / 4).toFixed(2))}
-                  risk = {localizeNumber((unitSize.toFixed() * stopLoss / 4).toFixed(2))}
+                  cost = {money(sharePrice * unitSize / 4)}
+                  risk = {money(unitSize.toFixed() * stopLoss / 4)}
                 />
               </tbody>
             </table>
