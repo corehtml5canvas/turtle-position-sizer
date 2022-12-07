@@ -211,7 +211,7 @@ function App() {
                   <DollarInput
                     ref={stopLossRef}
                     className='stoploss-explicit-value'
-                    value={stopLevel.toFixed(2)}
+                    value={stopLevel}
                     setValue={setStopLevel}
                   />
                 </span>
