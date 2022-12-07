@@ -48,7 +48,7 @@ function App() {
     { id: 10, name: 10 },
   ]
 
-  const [accountPercent, setAccountPercent] = useState(1)
+  const [riskPerTrade, setRiskPerTrade] = useState(1)
   const percents = [
     { id: 2, name: 2 },
     { id: 1, name: 1 },
@@ -76,18 +76,23 @@ function App() {
         if (!Number.isNaN(f)) {
           const sl = sharePrice - f
           setStopLoss(sl)
-          setUnitSize((accountValue * accountPercent / 100) / sl)
+          setUnitSize((accountValue * riskPerTrade / 100) / sl)
         }
       }
     }
     else {
       const stopLoss = atr * atrPercent / 100
       setStopLoss(stopLoss)
-      setUnitSize((accountValue * accountPercent / 100) / stopLoss)
+      setUnitSize((accountValue * riskPerTrade / 100) / stopLoss)
     }
   }, [
-    atr, atrPercent, accountValue, accountPercent,
-    stopLevel, editingStopLoss, sharePrice
+    riskPerTrade,
+    accountValue,
+    atr,
+    atrPercent,
+    editingStopLoss,
+    sharePrice,
+    stopLevel,
   ])
 
   // EVENT HANDLERS.............................................................
@@ -98,16 +103,14 @@ function App() {
     setStopLoss(parseFloat(v * atr / 100))
   }
 
-  const accountPercentChanged = (e) => {
+  const riskPerTradeChanged = (e) => {
     const v = e.target.value
-    setAccountPercent(parseFloat(v))
-    if (editStopLoss) {
-      const f = parseFloat(stopLevel)
-      if (!Number.isNaN(f)) {
-        const sl = sharePrice - f
-        setStopLoss(sl)
-        setUnitSize((accountValue * accountPercent / 100) / sl)
-      }
+    setRiskPerTrade(parseFloat(v))
+    const f = parseFloat(stopLevel)
+    if (!Number.isNaN(f)) {
+      const sl = sharePrice - f
+      setStopLoss(sl)
+      setUnitSize((accountValue * riskPerTrade / 100) / sl)
     }
   }
 
@@ -202,10 +205,10 @@ function App() {
               <span className='risk-per-trade'>Risk per Trade</span>
               <Dropdown
                 items={percents}
-                value={accountPercent}
+                value={riskPerTrade}
                 valueProperty='id'
                 displayProperty='name'
-                handleOnChange={accountPercentChanged}
+                handleOnChange={riskPerTradeChanged}
                 width='4em'
               /> <span className='risk-per-trade-percent'>%</span>
             </div>
@@ -298,7 +301,7 @@ function App() {
         </tr>
       </table>
 
-      { unitSize && stopLoss &&
+      { accountValue && accountValue != 0 && atr && atr != 0 && unitSize && stopLoss &&
         <div>
           <div className='position-display'>
             <hr className='separator'/>
