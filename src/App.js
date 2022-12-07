@@ -141,12 +141,12 @@ function App() {
 
       <td className='position-size-cost'>
         <DollarSign />
-        {cost}
+        {money(cost)}
       </td>
 
       <td className='position-size-risk'>
         <DollarSign />
-        {risk}
+        {money(risk)}
       </td>
     </tr>
 
@@ -304,22 +304,22 @@ function App() {
                 <PositionSizeRow
                   units = '1'
                   numShares = {unitSize.toFixed()}
-                  cost = {money(sharePrice * unitSize)}
-                  risk = {money(unitSize.toFixed() * stopLoss)}
+                  cost = {sharePrice * unitSize}
+                  risk = {unitSize.toFixed() * stopLoss}
                 />
 
                 <PositionSizeRow
                   units = '1/2'
                   numShares = {unitSize.toFixed()/2}
-                  cost = {money(sharePrice * unitSize / 2)}
-                  risk = {money(unitSize.toFixed() * stopLoss / 2)}
+                  cost = {sharePrice * unitSize / 2}
+                  risk = {unitSize.toFixed() * stopLoss / 2}
                 />
 
                 <PositionSizeRow
                   units = '1/4'
                   numShares = {unitSize.toFixed()/4}
-                  cost = {money(sharePrice * unitSize / 4)}
-                  risk = {money(unitSize.toFixed() * stopLoss / 4)}
+                  cost = {sharePrice * unitSize / 4}
+                  risk = {unitSize.toFixed() * stopLoss / 4}
                 />
               </tbody>
             </table>
