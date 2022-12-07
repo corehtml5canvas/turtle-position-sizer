@@ -68,9 +68,9 @@ function App() {
   }, [editingStopLoss])
 
   useEffect(() => {
-    let stopLoss = editingStopLoss && stopLevel && !Number.isNaN(stopLevel) ?
-                   sharePrice - stopLevel :
-                   atr * atrPercent / 100
+    const stopLoss = editingStopLoss && stopLevel && !Number.isNaN(stopLevel) ?
+                     sharePrice - stopLevel :
+                     atr * atrPercent / 100
 
     setStopLoss(stopLoss)
     setUnitSize((accountValue * riskPerTrade / 100) / stopLoss)
