@@ -94,14 +94,11 @@ function App() {
 
   const riskPerTradeChanged = (e) => {
     const riskPerTrade = parseFloat(e.target.value)
+    const stopLoss = sharePrice - stopLevel
 
-    if (!Number.isNaN(riskPerTrade)) {
-      const stopLoss = sharePrice - stopLevel
-
-      setRiskPerTrade(riskPerTrade)
-      setStopLoss(stopLoss)
-      setUnitSize((accountValue * riskPerTrade / 100) / stopLoss)
-    }
+    setRiskPerTrade(riskPerTrade)
+    setStopLoss(stopLoss)
+    setUnitSize((accountValue * riskPerTrade / 100) / stopLoss)
   }
 
   const editStopLoss = () => {
