@@ -18,9 +18,9 @@ const localizeNumber = n => parseFloat(n).toLocaleString()
 function App() {
   // STATE......................................................................
 
-  const [accountValue, setAccountValue] = useState(7800)
-  const [sharePrice, setSharePrice] = useState(179.67)
-  const [atr, setAtr] = useState(1.57)
+  const [accountValue, setAccountValue] = useState(8000.00)
+  const [sharePrice, setSharePrice] = useState(32.92)
+  const [atr, setAtr] = useState(0.57)
 
   const [unitSize, setUnitSize] = useState(null)
   const [stopLoss, setStopLoss] = useState(null)
@@ -46,7 +46,7 @@ function App() {
     { id: 10, name: 10 },
   ]
 
-  const [riskPerTrade, setRiskPerTrade] = useState(1)
+  const [riskPerTrade, setRiskPerTrade] = useState(0.75)
   const percents = [
     { id: 2, name: 2 },
     { id: 1, name: 1 },
@@ -68,15 +68,13 @@ function App() {
   }, [editingStopLoss])
 
   useEffect(() => {
-    if (editingStopLoss) {
-      if (stopLevel) {
-        const level = parseFloat(stopLevel)
+    if (editingStopLoss && stopLevel) {
+      const level = parseFloat(stopLevel)
 
-        if (!Number.isNaN(level)) {
-          const stopLoss = sharePrice - level
-          setStopLoss(stopLoss)
-          setUnitSize((accountValue * riskPerTrade / 100) / stopLoss)
-        }
+      if (!Number.isNaN(level)) {
+        const stopLoss = sharePrice - level
+        setStopLoss(stopLoss)
+        setUnitSize((accountValue * riskPerTrade / 100) / stopLoss)
       }
     }
     else {
@@ -85,11 +83,11 @@ function App() {
       setUnitSize((accountValue * riskPerTrade / 100) / stopLoss)
     }
   }, [
-    riskPerTrade,
     accountValue,
     atr,
     atrPercent,
     editingStopLoss,
+    riskPerTrade,
     sharePrice,
     stopLevel,
   ])
@@ -103,14 +101,12 @@ function App() {
   }
 
   const riskPerTradeChanged = (e) => {
-    const riskPerTrade = e.target.value
+    const riskPerTrade = parseFloat(e.target.value)
 
-    setRiskPerTrade(parseFloat(riskPerTrade))
+    if (!Number.isNaN(riskPerTrade)) {
+      const stopLoss = sharePrice - stopLevel
 
-    const level = parseFloat(stopLevel)
-
-    if (!Number.isNaN(level)) {
-      const stopLoss = sharePrice - level
+      setRiskPerTrade(riskPerTrade)
       setStopLoss(stopLoss)
       setUnitSize((accountValue * riskPerTrade / 100) / stopLoss)
     }
