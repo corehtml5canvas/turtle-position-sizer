@@ -29,8 +29,6 @@ function App() {
   const [editingStopLoss, setEditingStopLoss] = useState(false)
 
   const accountValueRef = useRef()
-  const sharePriceRef= useRef()
-  const atrRef = useRef()
   const stopLossRef = useRef()
 
   const [atrPercent, setAtrPercent] = useState(100)
@@ -105,8 +103,11 @@ function App() {
 
   const riskPerTradeChanged = (e) => {
     const v = e.target.value
+
     setRiskPerTrade(parseFloat(v))
+
     const f = parseFloat(stopLevel)
+
     if (!Number.isNaN(f)) {
       const sl = sharePrice - f
       setStopLoss(sl)
@@ -284,16 +285,14 @@ function App() {
           <DollarInput
             title='Share Price'
             value={sharePrice}
-            setValue={setSharePrice}
-            ref={sharePriceRef} />
+            setValue={setSharePrice} />
         </tr>
 
         <tr>
           <DollarInput
             title='ATR'
             value={atr}
-            setValue={setAtr}
-            ref={atrRef} />
+            setValue={setAtr} />
 
           <span className='atr-percent' >
             {(atr / sharePrice * 100).toFixed(2)} %
