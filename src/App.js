@@ -18,7 +18,7 @@ const money = n => parseFloat(n).toFixed(2)
 function App() {
   // STATE......................................................................
 
-  const [accountValue, setAccountValue] = useState(8000.00)
+  const [accountValue, setAccountValue] = useState(7757.00)
   const [sharePrice, setSharePrice] = useState(32.92)
   const [atr, setAtr] = useState(0.57)
 
@@ -87,23 +87,16 @@ function App() {
   // EVENT HANDLERS.............................................................
 
   const atrPercentChanged = (e) => {
-    const percent = e.target.value
-    setAtrPercent(percent)
-    setStopLoss(percent * atr / 100)
+    setAtrPercent(parseFloat(e.target.value))
   }
 
   const riskPerTradeChanged = (e) => {
-    const riskPerTrade = e.target.value
-    const stopLoss = sharePrice - stopLevel
-
-    setRiskPerTrade(riskPerTrade)
-    setStopLoss(stopLoss)
-    setUnitSize((accountValue * riskPerTrade / 100) / stopLoss)
+    setRiskPerTrade(parseFloat(e.target.value))
   }
 
   const editStopLoss = () => {
-    setEditingStopLoss(true)
     setStopLevel(sharePrice - stopLoss)
+    setEditingStopLoss(true)
   }
 
   const barsClicked = () => {
