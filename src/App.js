@@ -59,6 +59,7 @@ function App() {
 
   useEffect(() => {
     accountValueRef.current.focus()
+    document.title = 'Turtle Position Sizer'
   }, [])
 
   useEffect(() => {
@@ -271,7 +272,7 @@ function App() {
         </tr>
       </table>
 
-      { accountValue && accountValue != 0 && atr && atr != 0 && unitSize && stopLoss &&
+      { accountValue && accountValue !== 0 && atr && atr !== 0 && unitSize && stopLoss &&
         <div>
           <div className='position-display'>
             <hr className='separator'/>
