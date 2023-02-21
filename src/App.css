@@ -124,6 +124,10 @@
   color: yellow;
 }
 
+.percent-input-input {
+  font-weight: 200;
+}
+
 .dollar-input-title {
   font-weight: 200;
 }
@@ -131,6 +135,11 @@
 .dollar-input-input {
   padding-left: 0.5em;
   font-size: 1.05em;
+}
+
+.percent-sign {
+  color: yellow;
+  margin-right: 0.2em;
 }
 
 .dollar-sign {

@@ -6,8 +6,11 @@ import {
 
 import Dropdown from './Components/Dropdown'
 import EditingPencil from './Components/EditingPencil'
+
 import DollarInput from './Components/DollarInput'
 import DollarSign from './Components/DollarSign'
+
+import PercentInput from './Components/PercentInput'
 
 import { FaBars } from 'react-icons/fa'
 
@@ -20,16 +23,13 @@ function App() {
 
   const [accountValue, setAccountValue] = useState(8000.00)
   const [sharePrice, setSharePrice] = useState(32.92)
-  const [atr, setAtr] = useState(0.57)
+  const [atr, setAtr] = useState(5.25)
 
   const [unitSize, setUnitSize] = useState(null)
   const [stopLoss, setStopLoss] = useState(null)
   const [stopLevel, setStopLevel] = useState(null)
 
   const [editingStopLoss, setEditingStopLoss] = useState(false)
-
-  const accountValueRef = useRef()
-  const stopLossRef = useRef()
 
   const [atrPercent, setAtrPercent] = useState(100)
   let atrPercents = [
@@ -71,7 +71,7 @@ function App() {
   useEffect(() => {
     const stopLoss = editingStopLoss && stopLevel && !Number.isNaN(stopLevel) ?
                      sharePrice - stopLevel :
-                     atr * atrPercent / 100
+                     (atr * sharePrice / 100) * atrPercent / 100
 
     setStopLoss(stopLoss)
     setUnitSize((accountValue * riskPerTrade / 100) / stopLoss)
@@ -85,10 +85,15 @@ function App() {
     stopLevel,
   ])
 
+  // REFS.......................................................................
+
+  const accountValueRef = useRef()
+  const stopLossRef = useRef()
+
   // EVENT HANDLERS.............................................................
 
-  const atrPercentChanged = (e) => setAtrPercent(parseFloat(e.target.value))
-  const riskPerTradeChanged = (e) => setRiskPerTrade(parseFloat(e.target.value))
+  const atrPercentChanged = e => setAtrPercent(parseFloat(e.target.value))
+  const riskPerTradeChanged = e => setRiskPerTrade(parseFloat(e.target.value))
   const stopEditingStopLoss = () => setEditingStopLoss(false)
 
   const editStopLoss = () => {
@@ -261,14 +266,10 @@ function App() {
         </tr>
 
         <tr>
-          <DollarInput
-            title='ATR'
+          <PercentInput
+            title='ATR (% of Share Price)'
             value={atr}
             setValue={setAtr} />
-
-          <span className='atr-percent' >
-            {(atr / sharePrice * 100).toFixed(2)} %
-          </span>
         </tr>
       </table>
 
