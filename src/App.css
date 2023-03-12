@@ -56,6 +56,11 @@
   font-weight: 300;
 }
 
+.cost-account-percent {
+  width: 4em;
+  font-weight: 300;
+}
+
 .cost-display {
   width: 5em;
   font-weight: 300;
@@ -208,6 +213,13 @@
 .position-size-risk {
   text-align: left;
   padding-left: 0.7em;
+  color: lightgoldenrodyellow;
+}
+
+.position-size-account-percent {
+  text-align: left;
+  padding-left: 1.2em;
+  color: rgb(158, 32, 226);
 }
 
 .position-size-cost {

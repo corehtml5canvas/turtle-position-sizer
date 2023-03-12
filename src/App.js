@@ -130,6 +130,10 @@ function App() {
         </span>
       </td>
 
+      <td className='position-size-account-percent'>
+        {(cost / accountValue * 100).toFixed(0)}%
+      </td>
+
       <td className='position-size-cost'>
         <DollarSign />
         {money(cost)}
@@ -282,6 +286,7 @@ function App() {
                 <tr>
                   <th className='units-display'>Units</th>
                   <th className='shares-display'>Shares</th>
+                  <th className='cost-account-percent'>Acct %</th>
                   <th className='cost-display'>Cost</th>
                   <th className='risk-display'>Risk</th>
                 </tr>
