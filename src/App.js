@@ -21,7 +21,7 @@ const money = n => parseFloat(n).toFixed(2)
 function App() {
   // STATE......................................................................
 
-  const [accountValue, setAccountValue] = useState(159000.00)
+  const [accountValue, setAccountValue] = useState(10000.00)
   const [sharePrice, setSharePrice] = useState(32.92)
   const [atr, setAtr] = useState(1.50)
 
