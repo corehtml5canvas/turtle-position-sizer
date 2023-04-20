@@ -6,6 +6,7 @@ const PercentInput = forwardRef(({
   title,
   value,
   setValue,
+  style = {},
   onBlur = () => {},
 },
   ref,
@@ -26,11 +27,11 @@ const PercentInput = forwardRef(({
           min='1'
           step='any'
           className='field'
-          style={{fontSize: '0.75em'}}
           ref={ref}
           value={value}
           onChange={e => setValue(e.target.value)}
           onBlur={() => onBlur()}
+          style={{...style}}
         />
       </td>
     </>

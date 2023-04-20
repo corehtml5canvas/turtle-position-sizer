@@ -31,7 +31,7 @@
 }
 
 .editing-pencil {
-  margin-left: -1em;
+  margin-left: -1.4em;
   margin-top: -5px;
   color: rgb(255,255,155);
   cursor: pointer;
@@ -48,7 +48,7 @@
 
 .account-info {
   margin-top: 1.0em;
-  margin-left: 1.4em;
+  margin-left: -1.4em;
 }
 
 .risk-display {
@@ -109,11 +109,13 @@
 .risk-per-trade {
   margin-top: 10;
   margin-right: 2.5em;
+  margin-left: 0.5em;
   font-weight: 200;
 }
 
 .risk-per-trade-percent {
   color: steelblue;
+  font-size: 0.9em;
 }
 
 .bars {
@@ -144,23 +146,12 @@
 
 .percent-sign {
   color: yellow;
-  margin-right: 0.2em;
+  margin-left: 0.35em;
 }
 
 .dollar-sign {
   color: lightgoldenrodyellow;
   margin-right: 0.2em;
-}
-
-.stoploss-atr {
-  margin-left: 1.2em;
-  margin-top: 10px;
-  margin-right: 0.5em;
-}
-
-.stoploss-level {
-  margin-left: 2.2em;
-  margin-right: 2.2em;
 }
 
 .stoploss-explicit-dollar {
@@ -188,6 +179,7 @@
 
 .stoploss-computed-percent {
   font-weight: 200;
+  margin-right: -0.35em;
 }
 
 .stoploss-computed-title {

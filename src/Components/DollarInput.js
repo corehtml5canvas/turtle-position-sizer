@@ -26,7 +26,7 @@ const DollarInput = forwardRef(({
           min='1'
           step='any'
           className='field'
-          style={{fontSize: '0.75em'}}
+          style={{fontSize: '0.75em', width: '3.5em'}}
           ref={ref}
           value={value}
           onChange={e => setValue(e.target.value)}

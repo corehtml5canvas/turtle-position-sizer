@@ -21,9 +21,9 @@ const money = n => parseFloat(n).toFixed(2)
 function App() {
   // STATE......................................................................
 
-  const [accountValue, setAccountValue] = useState(8000.00)
+  const [accountValue, setAccountValue] = useState(159000.00)
   const [sharePrice, setSharePrice] = useState(32.92)
-  const [atr, setAtr] = useState(5.25)
+  const [atr, setAtr] = useState(1.50)
 
   const [unitSize, setUnitSize] = useState(null)
   const [stopLoss, setStopLoss] = useState(null)
@@ -31,8 +31,13 @@ function App() {
 
   const [editingStopLoss, setEditingStopLoss] = useState(false)
 
-  const [atrPercent, setAtrPercent] = useState(100)
+  const [atrPercent, setAtrPercent] = useState(200)
+
   let atrPercents = [
+    { id: 600, name: 600 },
+    { id: 500, name: 500 },
+    { id: 400, name: 400 },
+    { id: 300, name: 300 },
     { id: 200, name: 200 },
     { id: 100, name: 100 },
     { id: 90, name: 90 },
@@ -46,13 +51,14 @@ function App() {
     { id: 10, name: 10 },
   ]
 
-  const [riskPerTrade, setRiskPerTrade] = useState(0.75)
+  const [riskPerTrade, setRiskPerTrade] = useState(1.0)
   const percents = [
-    { id: 2, name: 2 },
-    { id: 1, name: 1 },
-    { id: 0.75, name: .75 },
-    { id: 0.5, name: .50 },
-    { id: 0.25, name: .25 },
+    { id: 2, name: 200 },
+    { id: 1, name: 100 },
+    { id: 0.75, name: 75 },
+    { id: 0.5, name: 50 },
+    { id: 0.25, name: 25 },
+    { id: 0.125, name: 12.5 },
   ]
 
   // EFFECTS....................................................................
@@ -192,7 +198,7 @@ function App() {
                 displayProperty='name'
                 handleOnChange={riskPerTradeChanged}
                 width='4em'
-              /> <span className='risk-per-trade-percent'>%</span>
+              /> <span className='risk-per-trade-percent'>bps</span>
             </div>
           </td>
         </tr>
@@ -271,6 +277,7 @@ function App() {
 
         <tr>
           <PercentInput
+            style={{marginLeft: '0.7em', fontSize: '0.77em', width: '3.5em'}}
             title='ATR (% of Share Price)'
             value={atr}
             setValue={setAtr} />
